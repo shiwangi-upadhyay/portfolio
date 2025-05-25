@@ -104,7 +104,7 @@ const Projects = () => {
   return (
     <div
       id="projects"
-      className="w-full min-h-screen bg-[#111] px-[clamp(1.6875rem,1.6339rem+0.2679vi,1.875rem)] py-[clamp(4.5rem,4.3571rem+0.7143vi,5rem)] mt-10"
+      className="w-full min-h-screen bg-[#111] px-[clamp(1.6875rem,1.6339rem+0.2679vi,1.875rem)] py-[clamp(4.5rem,4.3571rem+0.7143vi,5rem)] mt-20 "
     >
       <div>
         <h2 className="text-[#d1d1c7] text-[clamp(3rem,2.25rem+3.75vw,5.625rem)] font-semibold uppercase inline-block">
@@ -148,7 +148,7 @@ const Projects = () => {
             scale: 0.92,
           },
         }}
-        className="w-full max-w-7xl"
+        className="w-full max-w-7xl mt-10"
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
