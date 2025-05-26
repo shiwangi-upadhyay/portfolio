@@ -87,7 +87,7 @@ const About = () => {
       <div>
         <h2
           ref={worksHeadingRef}
-          className=" w-full text-[#393632] text-[clamp(3rem,2.25rem+3.75vw,5.625rem)] font-semibold uppercase inline-block"
+          className=" w-full text-[#393632] text-[clamp(3rem,2.25rem+3.75vw,5.625rem)] font-semibold pl-6 uppercase inline-block"
         >
           <span className="inline-block">Something </span>
           <span> </span>
@@ -101,20 +101,20 @@ const About = () => {
       </div>
       {/* Services Section */}
       <div className="services w-full relative bg-[rgb(232,232,227)] ">
-        <div className="one border ek flex items-start pt-12">
-          <div className="oneL w-1/2">
-            <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
-              {'(01)'.split('').map((ch, i) => (
-                <span
-                  key={i}
-                  className="inline-block translate-y-full opacity-0"
-                >
-                  {ch}
-                </span>
-              ))}
-            </h2>
-          </div>
-          <div className="oneR w-1/2 flex flex-col relative">
+        <div className="one border ek flex flex-col md:flex-row items-start pl-8 pt-12">
+            <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
+                <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
+                {'(01)'.split('').map((ch, i) => (
+                    <span
+                    key={i}
+                    className="inline-block translate-y-full opacity-0"
+                    >
+                    {ch}
+                    </span>
+                ))}
+                </h2>
+            </div>
+            <div className="oneR w-full md:w-1/2 flex flex-col relative">
             <h3 className="text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)] font-montreal text-[#393632]">
               Frontend Development
             </h3>
@@ -137,8 +137,8 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="one border do flex items-start bg-[rgb(232,232,227)] border-t border-[#d1d1c7] pt-12">
-          <div className="oneL w-1/2">
+        <div className="one border do flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-[#d1d1c7] pt-12 pl-8">
+            <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
               {'(02 )'.split('').map((ch, i) => (
                 <span
@@ -150,7 +150,7 @@ const About = () => {
               ))}
             </h2>
           </div>
-          <div className="oneR w-1/2 flex flex-col relative">
+          <div className="oneR w-full md:w-1/2 flex flex-col relative">
             <h3 className="text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)] font-montreal text-[#393632]">
               Backend Development
             </h3>
@@ -173,8 +173,8 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="one border tin flex items-start bg-[rgb(232,232,227)] border-t border-b-0 border-[#d1d1c7] pt-12">
-          <div className="oneL w-1/2">
+        <div className="one border tin flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-b-0 border-[#d1d1c7] pt-12 pl-8 ">
+            <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
               {'(03)'.split('').map((ch, i) => (
                 <span
@@ -186,7 +186,7 @@ const About = () => {
               ))}
             </h2>
           </div>
-          <div className="oneR w-1/2 flex flex-col relative">
+          <div className="oneR w-full md:w-1/2 flex flex-col relative">
             <h3 className="text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)] font-montreal text-[#393632]">
               Database
             </h3>
