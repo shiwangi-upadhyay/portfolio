@@ -1,212 +1,176 @@
 "use client";
-import { useRef, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, EffectCreative } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/effect-creative";
+import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
 
-const slides = [
+const projects = [
   {
-    image: "/images/profile.jpg",
-    title: "Summer Collection",
-    subtitle: "Trendy & Fresh",
-    desc: "Discover our latest summer arrivals with unique designs and vibrant colors.",
-    cta: "Shop Now",
+    num: 1,
+    title: "Library",
+    subtitle: "Full Stack Project",
+    image: "https://www.jdandj.com/uploads/8/0/0/8/80083458/what-makes-a-great-book-cover-for-an-author_orig.jpg",
+    link: "https://cafe-library.vercel.app/",
   },
   {
-    image: "/images/profile.jpg",
-    title: "Street Style",
-    subtitle: "Urban Vibes",
-    desc: "Step out in style with our exclusive streetwear collection.",
-    cta: "Explore",
+    num: 2,
+    title: "Shopping Cart App",
+    subtitle: "Frontend Project",
+    image: "https://img.freepik.com/free-photo/3d-render-sunglasses-shopping-cart-illustration-design_460848-6286.jpg?semt=ais_hybrid&w=740",
+    link: "http://github.com/shiwangi-upadhyay/blog-app",
   },
   {
-    image: "/images/profile.jpg",
-    title: "Classic Elegance",
-    subtitle: "Timeless Fashion",
-    desc: "Redefine classic looks with our elegant and timeless pieces.",
-    cta: "View Collection",
+    num: 3,
+    title: "Blog App",
+    subtitle: "Backend Project",
+    image: "https://img.pikbest.com/wp/202408/blank-yellow-duotone-style-modern-laptop-computer-on-a-background-with-screen-for-custom-design-3d-rendering_9825735.jpg!sw800",
+    link: "https://shopping-addtocart.netlify.app/",
   },
+  
 ];
 
+export default function ProjectsShowcase() {
+  const [active, setActive] = useState(2);
+  const imgRefs = useRef([]);
+  const worksHeadingRef = useRef(null);
 
-const Projects = () => {
-    const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const slideRefs = useRef([]);
-
-  // GSAP animation for slide content
-  const animateSlide = (el) => {
-    if (!el) return;
-    gsap.fromTo(
-      el.querySelectorAll(".anim-subtitle"),
-      { opacity: 0, y: -30 },
-      { opacity: 1, y: 0, duration: 1.1, ease: "power4.out" }
-    );
-    gsap.fromTo(
-      el.querySelectorAll(".anim-title"),
-      { opacity: 0, x: 80 },
-      { opacity: 1, x: 0, duration: 1.1, delay: 0.18, ease: "power4.out" }
-    );
-    gsap.fromTo(
-      el.querySelectorAll(".anim-desc"),
-      { opacity: 0, scale: 0.97 },
-      { opacity: 1, scale: 1, duration: 1.1, delay: 0.35, ease: "power4.out" }
-    );
-    gsap.fromTo(
-      el.querySelectorAll(".anim-btn"),
-      { opacity: 0, y: 60 },
-      { opacity: 1, y: 0, duration: 1.1, delay: 0.52, ease: "power4.out" }
-    );
-    gsap.fromTo(
-      el.querySelectorAll(".anim-img"),
-      { opacity: 0, scale: 0.92 },
-      { opacity: 1, scale: 1, duration: 1.1, ease: "power4.out" }
-    );
-  };
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const text3 = document.querySelectorAll("#projects h2 span");
-    text3.forEach((text) => {
-      gsap.set(text, { y: "100%", opacity: 0 });
-    });
-    gsap.to(text3, {
-      y: 0,
-      opacity: 1,
-      stagger: 0.2,
-      duration: 1,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: "#projects",
-        start: "top 100%",
-        toggleActions: "play none none none",
-      },
-    });
+   useEffect(() => {
+    if (worksHeadingRef.current) {
+      const spans = worksHeadingRef.current.querySelectorAll("span");
+      gsap.set(spans, { y: "100%", opacity: 0 });
+      gsap.to(spans, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.18,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: worksHeadingRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+      });
+    }
   }, []);
 
   useEffect(() => {
-    if (slideRefs.current[0]) animateSlide(slideRefs.current[0]);
-  }, []);
 
-  // Animate on every slide change
-  const handleSlideChange = (swiper) => {
-    const idx = swiper.realIndex;
-    const el = slideRefs.current[idx];
-    if (el) animateSlide(el);
-  };
+    imgRefs.current.forEach((img, idx) => {
+      if (!img) return;
+      if (idx === active) {
+        gsap.to(img, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.45,
+          pointerEvents: "auto",
+          ease: "power2.out",
+        });
+      } else {
+        gsap.to(img, {
+          opacity: 0,
+          scale: 0.98,
+          duration: 0.45,
+          pointerEvents: "none",
+          ease: "power2.out",
+        });
+      }
+    });
+  }, [active]);
 
   return (
-    <div
-      id="projects"
-      className="w-full min-h-screen bg-[#111] px-[clamp(1.6875rem,1.6339rem+0.2679vi,1.875rem)] py-[clamp(4.5rem,4.3571rem+0.7143vi,5rem)] mt-20 "
-    >
-      <div>
-        <h2 className="text-[#d1d1c7] text-[clamp(3rem,2.25rem+3.75vw,5.625rem)] font-semibold uppercase inline-block">
-          <span className="inline-block">Selected</span>
-          <span className="inline-block">Works</span>
-          <span className="inline-block">/</span>
+    <div 
+    id="projects"
+    className="w-full min-h-screen mt-28 bg-[rgb(232,232,227)] flex flex-col justify-center py-12 ">
+        <h2
+          ref={worksHeadingRef}
+          className=" w-full text-[#393632] text-[clamp(3rem,2.25rem+3.75vw,5.625rem)] font-semibold text-4xl uppercase pl-6 inline-block"
+        >
+          <span className="inline-block">My</span>
+          <span> </span>
+          <span className="inline-block">Projects</span>
+          
           <span className="inline-block">
-            <sup>(5)</sup>
+            
           </span>
         </h2>
-      </div>
-      <Swiper
-        modules={[Navigation, EffectCreative]}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-          swiper.navigation.init();
-          swiper.navigation.update();
-        }}
-        onSlideChange={handleSlideChange}
-        loop={true}
-        grabCursor={true}
-        slidesPerView={1}
-        speed={1200}
-        effect={"creative"}
-        creativeEffect={{
-          prev: {
-            shadow: true,
-            opacity: 0.6,
-            translate: ["-120%", 0, -500],
-            scale: 0.92,
-          },
-          next: {
-            shadow: true,
-            opacity: 0.6,
-            translate: ["120%", 0, -500],
-            scale: 0.92,
-          },
-        }}
-        className="w-full max-w-7xl mt-10"
-      >
-        {slides.map((slide, idx) => (
-          <SwiperSlide key={idx}>
-            {({ isActive }) => (
-              <div
-                ref={el => (slideRefs.current[idx] = el)}
-                className="flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0 px-6 md:px-32"
-              >
-                <div className="flex-1 flex flex-col items-start z-10">
-                  <div className="mb-3 text-xs uppercase tracking-widest text-[#ffd5a3] font-bold anim-subtitle">
-                    {slide.subtitle}
-                  </div>
-                  <h2 className="text-4xl md:text-7xl font-extrabold text-white mb-8 tracking-tight drop-shadow-[0_4px_16px_rgba(255,213,163,0.21)] anim-title">
-                    {slide.title}
-                  </h2>
-                  <p className="text-lg md:text-2xl text-[#f3e3d3] mb-10 max-w-lg leading-relaxed anim-desc">
-                    {slide.desc}
-                  </p>
-                  <button className="px-10 py-3 rounded-full bg-gradient-to-r from-[#ffd5a3] to-[#ffb86c] hover:from-[#fff5e6] hover:to-[#ffd5a3] text-[#181818] font-bold text-xl shadow-lg transition-all anim-btn">
-                    {slide.cta}
-                  </button>
+        <section className=" bg-[rgb(232,232,227)] flex flex-col justify-center py-12">
+      <div className="relative flex w-full max-w-[1200px] mx-auto h-[480px] md:h-[530px] gap-6">
+        {projects.map((p, idx) => (
+          <div
+            key={p.num}
+            className="flex-1 min-w-0 flex flex-col justify-end items-center relative cursor-pointer group"
+            onMouseEnter={() => setActive(idx)}
+            onFocus={() => setActive(idx)}
+            tabIndex={0}
+          >
+            {/* Overlay image, always present, never affects layout */}
+            <div
+              ref={el => imgRefs.current[idx] = el}
+              className="absolute left-1/2 top-0 -translate-x-1/2 z-20 h-full pt-8 flex flex-col justify-end pointer-events-none"
+              style={{
+                width: 300,
+                opacity: idx === active ? 1 : 0,
+                scale: idx === active ? 1 : 0.98,
+                pointerEvents: idx === active ? "auto" : "none",
+              }}
+            >
+              <div className="relative w-[300px] h-full overflow-hidden bg-white rounded-sm shadow-xl">
+                <img
+                  src={p.image}
+                  alt={p.title}
+                  className="w-full h-full object-cover brightness-[.82] select-none pointer-events-none"
+                  draggable={false}
+                />
+                {/* Centered number */}
+                <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-[7.5rem] font-light pointer-events-none select-none mix-blend-luminosity">
+                  {p.num}
+                </span>
+                {/* Info */}
+                <div className="absolute bottom-7 left-6 text-white">
+                  <div className="font-medium text-lg">{p.title}</div>
+                  <div className="text-xs opacity-80">{p.subtitle}</div>
                 </div>
-                <div className="relative flex-1 min-w-[320px] flex items-center justify-center anim-img">
-                  <div className="relative w-[340px] h-[480px] md:w-[410px] md:h-[560px] rounded-[3rem] bg-white/10 backdrop-blur-md border border-[#ffd5a3] shadow-2xl flex items-center justify-center overflow-hidden ring-4 ring-[#ffd5a3]/20">
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="w-full h-full object-cover rounded-[3rem] scale-105 transition-transform duration-700 ease-[cubic-bezier(.77,0,.18,1)] hover:scale-110"
-                    />
-                    {/* Decorative gradient overlay */}
-                    <div className="absolute inset-0 rounded-[3rem] pointer-events-none bg-gradient-to-tl from-[#ffd5a388] to-transparent" />
-                    {/* Soft drop shadow */}
-                    <div className="absolute inset-0 rounded-[3rem] pointer-events-none shadow-2xl shadow-[#ffd5a3]/20" />
-                  </div>
-                </div>
+                {/* Arrow */}
+                <a
+                  href={p.link}
+                  className="absolute bottom-7 right-6 text-white"
+                  tabIndex={-1}
+                  aria-label={`Go to ${p.title}`}
+                >
+                  <svg width={28} height={28} fill="none" stroke="currentColor" strokeWidth={2}>
+                    <path d="M6 22l16-16M22 6v10M22 6H12" />
+                  </svg>
+                </a>
               </div>
-            )}
-          </SwiperSlide>
+            </div>
+            {/* Big number (background) */}
+            <span
+              className="text-[7.5rem] sm:text-[6rem] font-light text-zinc-900 transition-opacity duration-300 select-none"
+              style={{ opacity: idx === active ? 0 : 1 }}
+            >
+              {p.num}
+            </span>
+            {/* Info below */}
+            <div className="mt-10 flex flex-col items-center">
+              <div className="font-medium text-base text-zinc-900">{p.title}</div>
+              <div className="text-xs text-zinc-500 mt-0.5">{p.subtitle}</div>
+              <a
+                href={p.link}
+                className="inline-block mt-2 text-zinc-900"
+                tabIndex={-1}
+                aria-label={`Go to ${p.title}`}
+              >
+                <svg width={20} height={20} fill="none" stroke="currentColor" strokeWidth={1.5}>
+                  <path d="M5 16l10-10M15 6v5M15 6H10" />
+                </svg>
+              </a>
+            </div>
+          </div>
         ))}
-
-        {/* Navigation Arrows */}
-        <button
-          ref={prevRef}
-          className="absolute left-20 md:left-5 top-1/2 -translate-y-1/2 z-20 p-4 bg-[#ffd5a3] hover:bg-[#ffe3c2] text-[#222] rounded-full shadow-lg transition-all border-2 border-white/10"
-          aria-label="Previous Slide"
-        >
-          <svg width="24" height="24" fill="none" stroke="#222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-        <button
-          ref={nextRef}
-          className="absolute right-10 md:right-[20px] top-1/2 -translate-y-1/2 z-20 p-4 bg-[#ffd5a3] hover:bg-[#ffe3c2] text-[#222] rounded-full shadow-lg transition-all border-2 border-white/10"
-          aria-label="Next Slide"
-        >
-          <svg width="24" height="24" fill="none" stroke="#222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-        </button>
-      </Swiper>
+      </div>
+    </section>
     </div>
+    
   );
-};
-
-export default Projects;
+}

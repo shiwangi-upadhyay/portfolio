@@ -120,7 +120,7 @@ export default function Home() {
      <div className="preloader fixed inset-0 z-[9999] overflow-hidden pointer-events-none bg-black text-black flex items-center justify-center"></div>
         <div className="main w-[100%] h-[100%] bg-opacity-100 bg-[rgb(232,232,227)] text-black">
           <header className="navbar w-full h-[50px] flex items-center justify-between text-black pl-[clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem)] pr-[clamp(2.25rem, 2.1786rem + 0.3571vi, 2.5rem)]">
-            <div className="logo-left w-[50%] flex items-center gap-16 ">
+            <div className="logo-left w-[50%] flex items-center gap-16 ml-10 ">
               <h2>Shiwangi</h2>
               <p className="text-[#6b645c] text-lg">(Web Designer & Developer)</p>
             </div>
@@ -222,7 +222,7 @@ export default function Home() {
                   <polyline points="17 7 17 17 7 17"></polyline>
                 </svg>
               </h4>
-              <p className="text-[clamp(1rem,0.9286rem_+_0.3571vw,1.25rem)] text-[#6b645c] max-w-[30ch] leading-[1.2] whitespace-balance">
+              <p className="text-[clamp(1rem,0.9286rem_+_0.3571vw,1.25rem)] text-[#393632] max-w-[30ch] leading-[1.2] whitespace-balance">
                 I help growing brands and startups gain an unfair advantage through premium, results driven websites.
               </p>
               <button
@@ -280,7 +280,7 @@ export default function Home() {
                 flex flex-col items-end justify-end
               "
             >
-              <p className="text-[#6b645c] text-[clamp(0.875rem,0.5393rem_+_0.5786vw,1rem)] uppercase">
+              <p className="text-[#393632] text-[clamp(0.875rem,0.5393rem_+_0.5786vw,1rem)] uppercase">
                 Available for freelance work
               </p>
               <h2 className="text-[clamp(3rem,2.25rem_+_3.75vw,5.625rem)] uppercase text-[#393632]">
