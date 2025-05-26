@@ -100,7 +100,7 @@ const About = () => {
         </h2>
       </div>
       <div className="abt w-full relative bg-[rgb(232,232,227)] ">
-        <div className="one border ek flex flex-col md:flex-row items-start pl-8 pt-16">
+        <div className="one border ek flex flex-col md:flex-row items-start pl-8 ">
             <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
                 <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
                 {'(01)'.split('').map((ch, i) => (
@@ -136,7 +136,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="one border do flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-[#d1d1c7] pt-12 pl-8">
+        <div className="one border do flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-[#d1d1c7] pl-8">
             <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
               {'(02 )'.split('').map((ch, i) => (
@@ -172,7 +172,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="one border tin flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-b-0 border-[#d1d1c7] pt-12 pl-8 ">
+        <div className="one border tin flex flex-col md:flex-row items-start bg-[rgb(232,232,227)] border-t border-b-0 border-[#d1d1c7] pl-8 ">
             <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
             <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
               {'(03)'.split('').map((ch, i) => (
