@@ -28,7 +28,7 @@ const About = () => {
     }
 
     // Animate the text spans in services sections
-    const headings = document.querySelectorAll('.services .oneL h2 span');
+    const headings = document.querySelectorAll('.abt .oneL h2 span');
     if (headings && headings.length > 0) {
       gsap.set(headings, { y: '100%', opacity: 0 });
       gsap.to(headings, {
@@ -99,9 +99,8 @@ const About = () => {
           </span>
         </h2>
       </div>
-      {/* Services Section */}
-      <div className="services w-full relative bg-[rgb(232,232,227)] ">
-        <div className="one border ek flex flex-col md:flex-row items-start pl-8 pt-12">
+      <div className="abt w-full relative bg-[rgb(232,232,227)] ">
+        <div className="one border ek flex flex-col md:flex-row items-start pl-8 pt-16">
             <div className="oneL w-full md:w-1/2 mb-6 md:mb-0">
                 <h2 className="text-[#393632] font-montreal text-[clamp(1.95rem,1.5rem+2.28vw,3.55rem)]">
                 {'(01)'.split('').map((ch, i) => (

@@ -55,15 +55,13 @@ export default function Home() {
 
   return (
     <>
-      {/* Preloader */}
       <div className="preloader fixed inset-0 z-[9999] bg-black text-white flex items-center justify-center text-xl sm:text-2xl">
-        Loading...
       </div>
 
       {/* Main Page */}
       <div className="main w-full bg-[#e8e8e3] text-black">
         {/* Header / Navbar */}
-        <header className="navbar w-full h-[60px] flex items-center justify-between px-6 text-black bg-[rgb(232,232,227)] fixed top-0 z-[999]">
+        <header className="navbar w-full h-[60px] flex items-center justify-between px-6 text-black bg-[rgb(232,232,227)]">
         {/* Logo */}
         <div className="flex items-center gap-4">
           <div className="bg-[#393632] text-[#e8e8e3] w-10 h-10 rounded-full flex items-center justify-center">
@@ -125,7 +123,7 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="bottom grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-6 mt-16">
+          <div className="bottom grid grid-cols-1 md:grid-cols-12 gap-y-12 md:gap-x-6 mt-28">
             {/* Left */}
             <div className="left md:col-span-4 flex flex-col gap-6">
               <h4>
@@ -165,8 +163,8 @@ export default function Home() {
 
             {/* Right */}
             <div className="right md:col-span-4 flex flex-col items-end justify-end text-right gap-2">
-              <p className="text-[#393632] text-sm sm:text-base uppercase">Available for freelance work</p>
-              <h2 className="text-[#393632] text-4xl sm:text-5xl md:text-6xl uppercase">Oct ‘24</h2>
+              <p className="text-[#393632] text-sm sm:text-base uppercase">Let’s keep the momentum going</p>
+              <h2 className="text-[#393632] text-4xl sm:text-5xl md:text-6xl uppercase">Onwards!</h2>
             </div>
           </div>
         </section>

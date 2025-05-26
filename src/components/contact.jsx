@@ -40,7 +40,7 @@ const Contact = () => {
       });
     }
 
-    // Animate subheading and CTA
+    // Animate subheading
     gsap.fromTo(
       heroSubRef.current,
       { opacity: 0, y: 25 },
@@ -69,7 +69,8 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full sm:max-w-[90%] mx-auto bg-[rgb(232,232,227)] flex flex-col items-center pt-6 md:pt-10 ">
+    <div id ="contact" 
+    className="min-h-screen w-full sm:max-w-[90%] mx-auto bg-[rgb(232,232,227)] flex flex-col items-center pt-6 md:pt-10 ">
       {/* HERO */}
       <div className="w-full max-w-[96%] sm:max-w-[90%] mx-auto rounded-2xl overflow-hidden bg-white shadow-xl mb-8 md:mb-12">
         <div className="relative">
