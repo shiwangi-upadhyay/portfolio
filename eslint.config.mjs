@@ -9,6 +9,15 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
+const eslintConfig = [
+  {
+    ignores: [".next/**", "node_modules/**", "out/**"],
+  },
+  ...compat.extends("next/core-web-vitals"),
+  {
+    // This empty object helps reset the serialization scope
+    rules: {},
+  },
+];
 
 export default eslintConfig;

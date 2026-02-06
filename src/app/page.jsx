@@ -223,7 +223,6 @@
 //   );
 // }
 
-
 "use client";
 import { useState, useEffect } from "react";
 import { ArrowDown, Github, Linkedin, ExternalLink } from "lucide-react";
@@ -236,14 +235,34 @@ export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    // 1. GSAP Animations
+    // 1. GSAP Animations for Hero Entrance
     const tl = gsap.timeline();
-    tl.from(".nav-anim", { y: -20, opacity: 0, stagger: 0.1, duration: 0.8, ease: "power3.out" })
-      .from(".hero-title-anim", { y: 60, opacity: 0, duration: 1, ease: "power4.out" }, "-=0.4")
-      .from(".hero-sub-anim", { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
-      .from(".hero-img-anim", { scale: 1.05, opacity: 0, duration: 1.2, ease: "power2.out" }, "-=0.8");
+    tl.from(".nav-anim", { 
+        y: -20, 
+        opacity: 0, 
+        stagger: 0.1, 
+        duration: 0.8, 
+        ease: "power3.out" 
+      })
+      .from(".hero-title-anim", { 
+        y: 60, 
+        opacity: 0, 
+        duration: 1, 
+        ease: "power4.out" 
+      }, "-=0.4")
+      .from(".hero-sub-anim", { 
+        opacity: 0, 
+        y: 20, 
+        duration: 0.8 
+      }, "-=0.6")
+      .from(".hero-img-anim", { 
+        scale: 1.05, 
+        opacity: 0, 
+        duration: 1.2, 
+        ease: "power2.out" 
+      }, "-=0.8");
 
-    // 2. Scroll Listener for Navbar Blur
+    // 2. Scroll Listener for Navbar Background Blur
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -264,7 +283,7 @@ export default function Home() {
           isScrolled ? "bg-white/70 backdrop-blur-lg border-b border-zinc-100 py-4" : "bg-transparent"
         }`}
       >
-        <div className="nav-anim font-medium tracking-tighter text-lg uppercase">S. Upadhyay</div>
+        <div className="nav-anim font-medium tracking-tighter text-lg uppercase">Shiwangi Upadhyay</div>
         
         <nav className="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.25em] text-[#666]">
           {["About", "Projects", "Contact"].map((item) => (
@@ -289,7 +308,7 @@ export default function Home() {
           </div>
           
           <div className="flex flex-col md:flex-row items-center justify-between mt-12 gap-12">
-            {/* Left: Subtext */}
+            {/* Left Column: Role Subtext */}
             <div className="hero-sub-anim md:w-1/3 order-2 md:order-1">
               <p className="text-sm text-[#555] leading-relaxed italic">
                 Currently architecting <br /> 
@@ -298,12 +317,16 @@ export default function Home() {
                 user-behavior analytics.
               </p>
               <div className="flex gap-4 mt-6">
-                <a href="https://github.com/shiwangi-upadhyay" target="_blank" className="hover:opacity-50 transition-opacity"><Github size={18}/></a>
-                <a href="#" className="hover:opacity-50 transition-opacity"><Linkedin size={18}/></a>
+                <a href="https://github.com/shiwangi-upadhyay" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
+                  <Github size={18}/>
+                </a>
+                <a href="https://linkedin.com/in/shiwangi-upadhyay-sh0910/" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">
+                  <Linkedin size={18}/>
+                </a>
               </div>
             </div>
 
-            {/* Center: Image with Hover Color Restoration */}
+            {/* Center Column: Interactive Profile Image */}
             <div className="hero-img-anim group w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden shadow-2xl order-1 md:order-2">
               <img 
                 src="/images/profile.jpg" 
@@ -312,7 +335,7 @@ export default function Home() {
               />
             </div>
 
-            {/* Right: Intro */}
+            {/* Right Column: Short Intro */}
             <div className="hero-sub-anim md:w-1/3 text-right order-3">
               <p className="text-xs uppercase tracking-widest font-bold text-[#888] mb-2">Based in India</p>
               <p className="text-sm text-[#1a1a1a] font-medium leading-relaxed">
@@ -327,11 +350,12 @@ export default function Home() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 flex flex-col items-center opacity-30">
-          <span className="text-[9px] uppercase tracking-[0.3em] mb-2" >Scroll</span>
+          <span className="text-[9px] uppercase tracking-[0.3em] mb-2">Scroll</span>
           <ArrowDown size={12} className="animate-bounce" />
         </div>
       </section>
 
+      {/* Main Sections */}
       <main>
         <About />
         <Projects />

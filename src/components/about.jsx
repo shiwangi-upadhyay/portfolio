@@ -229,8 +229,9 @@ const About = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-      // Use matchMedia to only enable horizontal scroll on desktop (min-width: 768px)
+      // Responsive GSAP Logic
       ScrollTrigger.matchMedia({
+        // Desktop: Horizontal Scroll Logic
         "(min-width: 768px)": function() {
           const sections = gsap.utils.toArray('.skill-card');
           
@@ -242,23 +243,22 @@ const About = () => {
               pin: true, 
               scrub: 1,
               start: "top top",
-              // end proportional to the amount of horizontal content
-              end: () => "+=" + sliderRef.current.scrollWidth, 
+              end: () => "+=" + (sliderRef.current?.scrollWidth || 2000), 
               invalidateOnRefresh: true,
             }
           });
         },
-        // On mobile, we let it scroll naturally or use simple reveals
+        // Mobile: Vertical Scroll Reveals
         "(max-width: 767px)": function() {
           const sections = gsap.utils.toArray('.skill-card');
           sections.forEach((section) => {
             gsap.from(section, {
               opacity: 0,
-              y: 50,
+              y: 30,
               duration: 1,
               scrollTrigger: {
                 trigger: section,
-                start: "top 80%",
+                start: "top 85%",
                 toggleActions: "play none none none"
               }
             });
@@ -266,9 +266,9 @@ const About = () => {
         }
       });
 
-      // Heading Reveal (Shared across all devices)
+      // Unified Header Reveal
       gsap.from(".about-header span", {
-        y: 100,
+        y: 80,
         opacity: 0,
         stagger: 0.1,
         duration: 1,
@@ -286,10 +286,10 @@ const About = () => {
   return (
     <div ref={containerRef} className="relative bg-white flex flex-col md:flex-row overflow-x-hidden border-t border-zinc-100">
       
-      {/* LEFT SECTION: FIXED SUMMARY ON DESKTOP / TOP SECTION ON MOBILE */}
+      {/* LEFT/TOP SUMMARY SECTION */}
       <div className="w-full md:w-[40%] md:h-screen p-8 md:p-16 flex flex-col justify-between border-b md:border-b-0 md:border-r border-zinc-100 bg-white z-20">
         <div>
-          <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-6 md:mb-8"><i>Professional Summary</i></h4>
+          <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-6 md:mb-8 italic">Professional Summary</h4>
           <h2 className="about-header text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter leading-none mb-6 md:mb-8 overflow-hidden">
             <span className="inline-block">ShelfEx</span> <br />
             <span className="inline-block italic font-serif text-yellow-500">Internship</span>
@@ -305,32 +305,32 @@ const About = () => {
         </div>
 
         <div className="flex gap-6 mt-8 md:mt-12">
-           <a href="https://github.com/shiwangi-upadhyay" className="hover:text-yellow-500 transition-colors"><Github size={20}/></a>
-           <a href="#" className="hover:text-yellow-500 transition-colors"><Linkedin size={20}/></a>
-           <a href="#" className="hover:text-yellow-500 transition-colors"><Mail size={20}/></a>
+           <a href="https://github.com/shiwangi-upadhyay" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors"><Github size={20}/></a>
+           <a href="https://linkedin.com/in/shiwangi-upadhyay-sh0910/" target="_blank" rel="noopener noreferrer" className="hover:text-yellow-500 transition-colors"><Linkedin size={20}/></a>
+           <a href="mailto:shiwangiupadhyay332@gmail.com" className="hover:text-yellow-500 transition-colors"><Mail size={20}/></a>
         </div>
       </div>
 
-      {/* RIGHT SECTION: SLIDING CARDS ON DESKTOP / STACKED ON MOBILE */}
+      {/* RIGHT/BOTTOM SLIDER SECTION */}
       <div ref={sliderRef} className="flex flex-col md:flex-row h-auto md:h-screen items-center">
         
-        {/* CARD 1 */}
-        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-[70vh] md:h-full p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-100 bg-white">
+        {/* CARD 01 */}
+        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-auto md:h-full p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-100 bg-white">
           <span className="text-6xl md:text-8xl font-black text-zinc-100 mb-4 select-none">01</span>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Frontend Architecture</h3>
           <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-6 md:mb-8">
-            Developed reusable UI components and managed multiple user portals using <b>Next.js</b> and <b>TypeScript</b>. I implemented cross-browser history synchronization to ensure a seamless experience across all devices.
+            Developed reusable UI components and managed multiple user portals using <b>Next.js</b> and JavaScript. I implemented cross-browser history synchronization to ensure a seamless experience across all devices.
           </p>
           <div className="grid grid-cols-2 gap-3 md:gap-4 text-[9px] md:text-[10px] font-black uppercase tracking-widest text-zinc-400">
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">Next.js Framework</div>
-             <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">TypeScript Integration</div>
+             <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">State Management</div>
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">Tailwind Styling</div>
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">Portal Management</div>
           </div>
         </div>
 
-        {/* CARD 2 */}
-        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-[70vh] md:h-full p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-100 bg-[#fdfdfc]">
+        {/* CARD 02 */}
+        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-auto md:h-full p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-zinc-100 bg-[#fdfdfc]">
           <span className="text-6xl md:text-8xl font-black text-zinc-100 mb-4 select-none">02</span>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Backend & Systems</h3>
           <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-6 md:mb-8">
@@ -340,12 +340,12 @@ const About = () => {
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">API Orchestration</div>
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">Node.js / Express</div>
              <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">Postman Testing</div>
-             <div className="p-4 border border-zinc-100 rounded-lg">System Security</div>
+             <div className="p-3 md:p-4 border border-zinc-100 rounded-lg">System Security</div>
           </div>
         </div>
 
-        {/* CARD 3 */}
-        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-[70vh] md:h-full p-8 md:p-20 flex flex-col justify-center bg-white">
+        {/* CARD 03 */}
+        <div className="skill-card flex-shrink-0 w-full md:w-[60vw] h-auto md:h-full p-8 md:p-20 flex flex-col justify-center bg-white">
           <span className="text-6xl md:text-8xl font-black text-zinc-100 mb-4 select-none">03</span>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Data & Intelligence</h3>
           <p className="text-lg md:text-xl text-zinc-600 leading-relaxed mb-6 md:mb-8">
