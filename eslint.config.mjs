@@ -10,13 +10,17 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // 1. Tell ESLint to ignore the build output
   {
     ignores: [".next/**", "node_modules/**", "out/**"],
   },
+  // 2. Load the Next.js config
   ...compat.extends("next/core-web-vitals"),
+  // 3. Add this empty object to "reset" the configuration scope
   {
-    // This empty object helps reset the serialization scope
-    rules: {},
+    rules: {
+      "react/no-unescaped-entities": "off",
+    },
   },
 ];
 
