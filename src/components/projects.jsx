@@ -193,7 +193,7 @@ const projects = [
     title: "Feedback Collector",
     subtitle: "SaaS Utility Tool",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+      "https://humanresourcesonline-assets.b-cdn.net/images/hr-sg/content-images/priya_mar_2022_opencommunication_trust_reliability_123rf.jpg",
     link: "https://feedback-tool-collector.vercel.app/signup",
     isPrivate: false,
     details:
