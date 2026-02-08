@@ -87,7 +87,7 @@ const Contact = () => {
     >
       {/* SECTION HEADER */}
       <div className="max-w-7xl mx-auto mb-20 flex flex-row justify-center items-center gap-4">
-        <div className="overflow-hidden text-center">
+        <div className="overflow-hidden">
           <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-4">
             <i>Get In Touch</i>
           </h4>
