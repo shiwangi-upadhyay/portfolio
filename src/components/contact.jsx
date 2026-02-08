@@ -191,7 +191,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Shiwangi Upadhyay"
                   className="bg-transparent border-b border-zinc-200 py-3 text-sm focus:border-zinc-900 outline-none transition-colors text-zinc-900"
                   required
                 />
@@ -202,7 +202,7 @@ const Contact = () => {
                 </label>
                 <input
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="shiwangiupadhyay332@gmail.com"
                   className="bg-transparent border-b border-zinc-200 py-3 text-sm focus:border-zinc-900 outline-none transition-colors text-zinc-900"
                   required
                 />
