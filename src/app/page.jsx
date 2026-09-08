@@ -312,9 +312,9 @@ export default function Home() {
             <div className="hero-sub-anim md:w-1/3 order-2 md:order-1">
               <p className="text-sm text-[#555] leading-relaxed italic">
                 Currently architecting <br /> 
-                <strong className="text-zinc-900">ShelfIntel</strong> at <strong className="text-zinc-900">ShelfEx</strong>. <br />
-                Focusing on REST APIs and <br />
-                user-behavior analytics.
+                <strong className="text-zinc-900">ShelfPulse</strong> at <strong className="text-zinc-900">ShelfEx</strong>. <br />
+                Focusing on AI workflows and <br />
+                cloud asset automation.
               </p>
               <div className="flex gap-4 mt-6">
                 <a href="https://github.com/shiwangi-upadhyay" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity">

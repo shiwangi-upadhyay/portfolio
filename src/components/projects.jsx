@@ -169,6 +169,196 @@
 //     );
 // }
 
+// "use client";
+// import React, { useRef, useEffect } from "react";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// const projects = [
+//   {
+//     num: "01",
+//     title: "ShelfIntel",
+//     subtitle: "Full Stack Architecture @ ShelfEx",
+//     image:
+//       "https://images.unsplash.com/photo-1551288049-bbbda546697c?q=80&w=2070&auto=format&fit=crop",
+//     link: "#",
+//     isPrivate: true,
+//     details:
+//       "Engineered a market intelligence platform from scratch using Next.js and PostgreSQL for real-time analytics.",
+//   },
+//   {
+//     num: "02",
+//     title: "Feedback Collector",
+//     subtitle: "SaaS Utility Tool",
+//     image:
+//       "https://humanresourcesonline-assets.b-cdn.net/images/hr-sg/content-images/priya_mar_2022_opencommunication_trust_reliability_123rf.jpg",
+//     link: "https://feedback-tool-collector.vercel.app/signup",
+//     isPrivate: false,
+//     details:
+//       "A specialized tool designed to streamline the collection and management of user feedback.",
+//   },
+//   {
+//     num: "03",
+//     title: "Library App",
+//     subtitle: "MERN Stack & JWT",
+//     image:
+//       "https://www.jdandj.com/uploads/8/0/0/8/80083458/what-makes-a-great-book-cover-for-an-author_orig.jpg",
+//     link: "https://cafe-library.vercel.app/",
+//     isPrivate: false,
+//     details:
+//       "Full-stack book rental platform featuring secure JWT-based role access and a clean user interface.",
+//   },
+// ];
+
+// export default function Projects() {
+//   const worksHeadingRef = useRef(null);
+//   const gridRef = useRef(null);
+
+//   useEffect(() => {
+//     const ctx = gsap.context(() => {
+//       // 1. Heading Reveal
+//       if (worksHeadingRef.current) {
+//         const spans = worksHeadingRef.current.querySelectorAll("span");
+//         gsap.fromTo(
+//           spans,
+//           { y: "100%", opacity: 0 },
+//           {
+//             y: 0,
+//             opacity: 1,
+//             stagger: 0.1,
+//             duration: 1,
+//             ease: "power4.out",
+//             scrollTrigger: {
+//               trigger: worksHeadingRef.current,
+//               start: "top 90%",
+//             },
+//           },
+//         );
+//       }
+
+//       // 2. Staggered Card Entrance
+//       const cards = gsap.utils.toArray(".project-card");
+//       gsap.fromTo(
+//         cards,
+//         { y: 60, opacity: 0 },
+//         {
+//           y: 0,
+//           opacity: 1,
+//           stagger: 0.15,
+//           duration: 1,
+//           ease: "power3.out",
+//           scrollTrigger: {
+//             trigger: gridRef.current,
+//             start: "top 85%",
+//           },
+//         },
+//       );
+//     });
+
+//     return () => ctx.revert();
+//   }, []);
+
+//   return (
+//     <div
+//       id="projects"
+//       className="bg-white py-32 px-6 md:px-12 border-t border-zinc-100"
+//     >
+//       {/* SECTION HEADING */}
+//       <div className="max-w-7xl mx-auto mb-20 flex flex-row justify-center items-center gap-6">
+//         <div className="overflow-hidden">
+//           <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-400 mb-4 block">
+//             <i>Selected Projects</i>
+//           </h4>
+//           <h2
+//             ref={worksHeadingRef}
+//             className="text-[clamp(2.5rem,6vw,5rem)] font-bold tracking-tighter leading-none"
+//           >
+//             <span className="inline-block mr-4 mx-auto">Featured</span>
+//             <span className="inline-block italic font-serif text-yellow-500">
+//               Works
+//             </span>
+//           </h2>
+//         </div>
+
+//       </div>
+
+//       <section className="max-w-7xl mx-auto">
+//         <div
+//           ref={gridRef}
+//           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16"
+//         >
+//           {projects.map((p) => (
+//             <div
+//               key={p.num}
+//               className="project-card relative flex flex-col group outline-none"
+//               tabIndex={0}
+//             >
+//               {/* IMAGE CONTAINER */}
+//               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-zinc-50 border border-zinc-100 transition-all duration-500 group-hover:shadow-2xl">
+//                 <img
+//                   src={p.image}
+//                   alt={p.title}
+//                   className="absolute inset-0 w-full h-full object-cover grayscale brightness-105 transition-all duration-500 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:grayscale-0 group-hover:scale-105"
+//                 />
+
+//                 {p.isPrivate && (
+//                   <div className="absolute top-6 left-6 z-30 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full">
+//                     <span className="text-[8px] font-bold text-white uppercase tracking-widest">
+//                       Internal Project
+//                     </span>
+//                   </div>
+//                 )}
+
+//                 {/* QUICK-REVEAL OVERLAY */}
+//                 <div className="absolute inset-0 bg-zinc-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 z-20">
+//                   <p className="text-white text-xs font-medium leading-relaxed italic mb-6 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+//                     {p.details}
+//                   </p>
+//                   {!p.isPrivate && (
+//                     <a
+//                       href={p.link}
+//                       target="_blank"
+//                       rel="noopener noreferrer"
+//                       className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-zinc-900 hover:bg-yellow-500 hover:scale-110 transition-all duration-300"
+//                     >
+//                       <svg
+//                         width={20}
+//                         height={20}
+//                         fill="none"
+//                         stroke="currentColor"
+//                         strokeWidth={2}
+//                       >
+//                         <path d="M5 15L15 5M15 5H8M15 5V12" />
+//                       </svg>
+//                     </a>
+//                   )}
+//                 </div>
+//               </div>
+
+//               {/* TEXT CONTENT */}
+//               <div className="mt-8 flex justify-between items-start">
+//                 <div>
+//                   <h3 className="text-xl font-bold tracking-tight text-zinc-900 uppercase">
+//                     {p.title}
+//                   </h3>
+//                   <p className="text-[10px] font-black text-zinc-400 mt-1 uppercase tracking-widest">
+//                     {p.subtitle}
+//                   </p>
+//                 </div>
+//                 <span className="text-sm font-serif italic text-zinc-300">
+//                   / {p.num}
+//                 </span>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </section>
+//     </div>
+//   );
+// }
+
 "use client";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
@@ -179,32 +369,31 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     num: "01",
-    title: "ShelfIntel",
-    subtitle: "Full Stack Architecture @ ShelfEx",
+    title: "Drilldown Donut Chart",
+    subtitle: "TypeScript • D3.js • Power BI SDK",
     image:
-      "https://images.unsplash.com/photo-1551288049-bbbda546697c?q=80&w=2070&auto=format&fit=crop",
-    link: "#",
-    isPrivate: true,
+      "/images/Donut.png",
+    link: "https://github.com/shiwangi-upadhyay/Powerbi-Donut-Chart",
+    isPrivate: false,
     details:
-      "Engineered a market intelligence platform from scratch using Next.js and PostgreSQL for real-time analytics.",
+      "A custom Power BI visual built from scratch featuring multi-level drilldown navigation, 360° animated transitions, Top-N grouping, and cross-filtering.",
   },
   {
     num: "02",
-    title: "Feedback Collector",
-    subtitle: "SaaS Utility Tool",
-    image:
-      "https://humanresourcesonline-assets.b-cdn.net/images/hr-sg/content-images/priya_mar_2022_opencommunication_trust_reliability_123rf.jpg",
-    link: "https://feedback-tool-collector.vercel.app/signup",
-    isPrivate: false,
+    title: "ShelfPulse",
+    subtitle: "Next.js • TypeScript • Canvas • GCP",
+    image: "/image/shelfpulse.png", // Update with your actual file name
+    link: "#",
+    isPrivate: true,
     details:
-      "A specialized tool designed to streamline the collection and management of user feedback.",
+      "Developed an interactive canvas editor and agentic AI workflows backed by GCP for automated, scalable asset generation—reducing creation time from hours to seconds.",
   },
   {
     num: "03",
     title: "Library App",
     subtitle: "MERN Stack & JWT",
     image:
-      "https://www.jdandj.com/uploads/8/0/0/8/80083458/what-makes-a-great-book-cover-for-an-author_orig.jpg",
+      "/images/library.png",
     link: "https://cafe-library.vercel.app/",
     isPrivate: false,
     details:
@@ -281,7 +470,6 @@ export default function Projects() {
             </span>
           </h2>
         </div>
-
       </div>
 
       <section className="max-w-7xl mx-auto">
