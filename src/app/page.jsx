@@ -303,7 +303,7 @@ export default function Home() {
         <div className="max-w-4xl w-full">
           <div className="overflow-hidden">
             <h1 className="hero-title-anim text-[clamp(2.5rem,8vw,5.5rem)] font-light leading-tight tracking-tight text-center">
-              Full Stack <span className="italic font-serif text-yellow-500">Engineer</span>
+              Full Stack <span className="italic font-serif text-yellow-500">Developer</span>
             </h1>
           </div>
           
