@@ -143,7 +143,7 @@ const Contact = () => {
                 <div className="p-3 rounded-full bg-zinc-50 text-zinc-900">
                   <MapPin size={18} />
                 </div>
-                <span>Greater Noida, Uttar Pradesh</span>
+                <span>Gurugram, Haryana</span>
               </div>
               <a
                 href="tel:+919336422437"
