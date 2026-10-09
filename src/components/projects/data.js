@@ -14,7 +14,7 @@ export const projects = [
     title: "ShelfPulse",
     subtitle: "Combo Shots • Canvas Builder • GCP",
     image: null,
-    link: "#",
+    link: "#shelfpulse-review",
     isPrivate: true,
     variant: "shelfpulse",
     details:
@@ -40,11 +40,36 @@ export const shelfPulseFlow = [
 ];
 
 export const sampleMenuJson = `{
-  "section": "Beverages",
+  "restaurant_id": "rest_pepsi_flagship_09",
+  "menu_section": "Value Combos & Beverages",
+  "currency": "INR",
   "items": [
-    { "name": "Cold Coffee", "price": 120 },
-    { "name": "Mango Shake", "price": 150 }
-  ]
+    {
+      "id": "combo_01",
+      "name": "Super Saver Burger Combo",
+      "description": "Crispy Veg Patty Burger + Salted French Fries + Pepsi 500ml",
+      "price": 199,
+      "category": "combos",
+      "tags": ["bestseller", "promotional"],
+      "discount_percent": 30
+    },
+    {
+      "id": "bev_01",
+      "name": "Pepsi 500ml Chilled Bottle",
+      "price": 40,
+      "category": "beverages",
+      "tags": ["official_partner"]
+    },
+    {
+      "id": "side_01",
+      "name": "Peri Peri Golden Fries",
+      "price": 89,
+      "category": "sides",
+      "tags": ["crispy"]
+    }
+  ],
+  "detection_confidence": 0.992,
+  "extraction_model": "Gemini-1.5-Pro-Vision"
 }`;
 
 export const shelfPulseAssets = {
@@ -53,7 +78,9 @@ export const shelfPulseAssets = {
   bottle: "/images/shelfpulse/BottleAssets/Pepsi.jpeg",
   bottleSmall: "/images/shelfpulse/BottleAssets/Pepsismall-cutout.png",
   burger: "/images/shelfpulse/FoodAssets/Burger-cutout.png",
+  burgerRaw: "/images/shelfpulse/FoodAssets/Burger.jpeg",
   fries: "/images/shelfpulse/FoodAssets/Fries-cutout.png",
+  friesRaw: "/images/shelfpulse/FoodAssets/Fries.jpeg",
   promoLandscape: "/images/shelfpulse/PromoShot/PromoShotLandscape.jpeg",
   promoPortrait: "/images/shelfpulse/PromoShot/PromoShotPortrait.jpeg",
 };

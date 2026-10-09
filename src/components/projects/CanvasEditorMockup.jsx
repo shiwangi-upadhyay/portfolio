@@ -109,7 +109,7 @@ export default function CanvasEditorMockup({ activeStep }) {
 
           <div className="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(190px,0.36fr)]">
             <div className="min-w-0 space-y-3">
-              <div className="relative min-h-[340px] overflow-hidden rounded-lg bg-zinc-950 sm:aspect-[16/9] sm:min-h-0">
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full min-h-[200px] sm:min-h-0 overflow-hidden rounded-lg bg-zinc-950">
                 <img
                   src={shelfPulseAssets.landscapeBg}
                   alt="ShelfPulse editor background"
@@ -117,35 +117,35 @@ export default function CanvasEditorMockup({ activeStep }) {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.46)_0_36%,rgba(0,0,0,.08)_36%)]" />
 
-                <div className="absolute left-[7%] top-[12%] max-w-[32%] text-3xl font-black uppercase leading-[0.92] text-white md:text-5xl">
+                <div className="absolute left-[5%] sm:left-[7%] top-[8%] sm:top-[12%] max-w-[34%] sm:max-w-[32%] text-xs sm:text-2xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.95] text-white tracking-tight">
                   Super Saver Combo
                 </div>
                 <img
                   src={shelfPulseAssets.burger}
                   alt="Burger editor layer"
-                  className={`absolute bottom-[20%] left-[40%] w-[24%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                  className={`absolute bottom-[12%] sm:bottom-[20%] left-[45%] sm:left-[40%] w-[24%] sm:w-[24%] object-contain drop-shadow-2xl transition-all duration-700 ${
                     activeStep >= 2
-                      ? "translate-x-2 scale-110 opacity-100"
+                      ? "translate-x-1 sm:translate-x-2 scale-105 sm:scale-110 opacity-100"
                       : "translate-x-0 scale-100 opacity-100"
                   }`}
                 />
                 <img
                   src={shelfPulseAssets.fries}
                   alt="Fries editor layer"
-                  className={`absolute bottom-[22%] right-[13%] w-[25%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                  className={`absolute bottom-[14%] sm:bottom-[22%] right-[8%] sm:right-[13%] w-[23%] sm:w-[25%] object-contain drop-shadow-2xl transition-all duration-700 ${
                     activeStep >= 3 ? "scale-x-[-1] opacity-90" : "scale-x-100 opacity-100"
                   }`}
                 />
                 <img
                   src={shelfPulseAssets.bottleSmall}
                   alt="Pepsi bottle editor layer"
-                  className={`absolute bottom-[12%] right-[31%] h-[68%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                  className={`absolute bottom-[10%] sm:bottom-[12%] right-[24%] sm:right-[29%] md:right-[31%] h-[52%] sm:h-[62%] md:h-[68%] max-w-[18%] sm:max-w-none object-contain drop-shadow-2xl transition-all duration-700 ${
                     activeStep >= 3 ? "-rotate-6 opacity-[0.92]" : "rotate-0 opacity-100"
                   }`}
                 />
 
                 <div
-                  className={`absolute bottom-[10%] right-[29%] h-[74%] w-[18%] rounded border border-yellow-300 transition-opacity duration-700 ${
+                  className={`absolute bottom-[8%] sm:bottom-[10%] right-[22%] sm:right-[27%] md:right-[29%] h-[56%] sm:h-[66%] md:h-[72%] w-[22%] sm:w-[18%] rounded border border-yellow-300 transition-opacity duration-700 ${
                     activeStep >= 1 && activeStep < 4 ? "opacity-100" : "opacity-0"
                   }`}
                 >
@@ -153,13 +153,13 @@ export default function CanvasEditorMockup({ activeStep }) {
                   <span className="absolute -right-1.5 -top-1.5 h-3 w-3 rounded-full border border-zinc-950 bg-yellow-300" />
                   <span className="absolute -bottom-1.5 -left-1.5 h-3 w-3 rounded-full border border-zinc-950 bg-yellow-300" />
                   <span className="absolute -bottom-1.5 -right-1.5 h-3 w-3 rounded-full border border-zinc-950 bg-yellow-300" />
-                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 rounded bg-yellow-300 px-2 py-1 text-[8px] font-black uppercase tracking-[0.1em] text-zinc-950">
+                  <span className="absolute -top-5 sm:-top-7 left-1/2 -translate-x-1/2 rounded bg-yellow-300 px-1.5 py-0.5 sm:px-2 sm:py-1 text-[7px] sm:text-[8px] font-black uppercase tracking-[0.1em] text-zinc-950 whitespace-nowrap">
                     product layer
                   </span>
                 </div>
 
                 <div
-                  className={`absolute right-4 bottom-4 rounded-full bg-emerald-400 px-4 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-zinc-950 transition-all duration-700 ${
+                  className={`absolute right-2 bottom-2 sm:right-4 sm:bottom-4 rounded-full bg-emerald-400 px-2.5 py-1 sm:px-4 sm:py-2 text-[8px] sm:text-[10px] font-black uppercase tracking-[0.12em] text-zinc-950 transition-all duration-700 ${
                     activeStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                   }`}
                 >

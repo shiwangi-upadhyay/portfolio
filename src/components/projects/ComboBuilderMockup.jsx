@@ -116,7 +116,7 @@ export default function ComboBuilderMockup({ activeStep }) {
           </div>
 
           <div className="grid min-w-0 grid-cols-1 gap-4">
-            <div className="relative min-h-[320px] overflow-hidden rounded-lg bg-zinc-950 sm:aspect-[16/9] sm:min-h-0">
+            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full min-h-[200px] sm:min-h-0 overflow-hidden rounded-lg bg-zinc-950">
               <img
                 src={shelfPulseAssets.landscapeBg}
                 alt="ShelfPulse landscape background template"
@@ -131,7 +131,7 @@ export default function ComboBuilderMockup({ activeStep }) {
               <img
                 src={shelfPulseAssets.burger}
                 alt="Burger layer"
-                className={`absolute bottom-[20%] left-[40%] w-[24%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                className={`absolute bottom-[12%] sm:bottom-[20%] left-[45%] sm:left-[40%] w-[24%] sm:w-[24%] object-contain drop-shadow-2xl transition-all duration-700 ${
                   activeStep >= 2
                     ? "translate-y-0 scale-100 opacity-100"
                     : "translate-y-16 scale-75 opacity-0"
@@ -140,7 +140,7 @@ export default function ComboBuilderMockup({ activeStep }) {
               <img
                 src={shelfPulseAssets.fries}
                 alt="Fries layer"
-                className={`absolute bottom-[22%] right-[13%] w-[25%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                className={`absolute bottom-[14%] sm:bottom-[22%] right-[8%] sm:right-[13%] w-[23%] sm:w-[25%] object-contain drop-shadow-2xl transition-all duration-700 ${
                   activeStep >= 2
                     ? "translate-y-0 scale-100 opacity-100"
                     : "translate-y-16 scale-75 opacity-0"
@@ -149,47 +149,47 @@ export default function ComboBuilderMockup({ activeStep }) {
               <img
                 src={shelfPulseAssets.bottleSmall}
                 alt="Pepsi bottle layer"
-                className={`absolute bottom-[12%] right-[31%] h-[68%] object-contain drop-shadow-2xl transition-all duration-700 ${
+                className={`absolute bottom-[10%] sm:bottom-[12%] right-[24%] sm:right-[29%] md:right-[31%] h-[52%] sm:h-[62%] md:h-[68%] max-w-[18%] sm:max-w-none object-contain drop-shadow-2xl transition-all duration-700 ${
                   activeStep >= 2
                     ? "translate-y-0 rotate-0 opacity-100"
                     : "translate-y-16 rotate-3 opacity-0"
                 }`}
               />
               <div
-                className={`absolute left-[7%] top-[12%] max-w-[32%] text-3xl font-black uppercase leading-[0.92] text-white md:text-5xl transition-all duration-700 ${
+                className={`absolute left-[5%] sm:left-[7%] top-[8%] sm:top-[12%] max-w-[34%] sm:max-w-[32%] text-xs sm:text-2xl md:text-4xl lg:text-5xl font-black uppercase leading-[0.95] text-white tracking-tight transition-all duration-700 ${
                   activeStep >= 3 ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
                 }`}
               >
                 Super Saver Combo
               </div>
               <div
-                className={`absolute left-[7%] top-[58%] flex max-w-[32%] flex-wrap gap-2 transition-all duration-700 ${
+                className={`absolute left-[5%] sm:left-[7%] top-[54%] sm:top-[58%] flex max-w-[34%] sm:max-w-[32%] flex-wrap gap-1 sm:gap-2 transition-all duration-700 ${
                   activeStep >= 3 ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
                 }`}
               >
-                <span className="rounded bg-yellow-400 px-3 py-2 text-[9px] font-black uppercase tracking-[0.1em] text-zinc-950">
+                <span className="rounded bg-yellow-400 px-1.5 py-0.5 sm:px-3 sm:py-2 text-[7px] sm:text-[9px] font-black uppercase tracking-[0.1em] text-zinc-950">
                   Text Layer
                 </span>
-                <span className="rounded border border-white/25 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.1em] text-white backdrop-blur">
+                <span className="rounded border border-white/25 px-1.5 py-0.5 sm:px-3 sm:py-2 text-[7px] sm:text-[9px] font-bold uppercase tracking-[0.1em] text-white backdrop-blur">
                   Editable
                 </span>
               </div>
 
               <div
-                className={`absolute bottom-[18%] left-[38%] h-[47%] w-[50%] rounded border border-yellow-300/80 transition-opacity duration-700 ${
+                className={`absolute bottom-[8%] sm:bottom-[18%] left-[42%] sm:left-[38%] h-[56%] sm:h-[47%] w-[52%] sm:w-[50%] rounded border border-yellow-300/80 transition-opacity duration-700 ${
                   activeStep >= 2 && activeStep < 4 ? "opacity-100" : "opacity-0"
                 }`}
               />
 
               <div
-                className={`absolute bottom-5 left-5 flex max-w-[56%] flex-wrap gap-2 transition-all duration-700 ${
+                className={`absolute bottom-2 left-2 sm:bottom-5 sm:left-5 flex max-w-[48%] sm:max-w-[56%] flex-wrap gap-1 sm:gap-2 transition-all duration-700 ${
                   activeStep >= 4 ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 }`}
               >
                 {["Landscape", "Portrait", "Gallery"].map((format) => (
                   <span
                     key={format}
-                    className="rounded-full bg-white px-3 py-2 text-[9px] font-black uppercase tracking-[0.1em] text-zinc-950"
+                    className="rounded-full bg-white px-2 py-0.5 sm:px-3 sm:py-2 text-[7px] sm:text-[9px] font-black uppercase tracking-[0.1em] text-zinc-950 shadow-sm"
                   >
                     {format}
                   </span>
@@ -197,7 +197,7 @@ export default function ComboBuilderMockup({ activeStep }) {
               </div>
 
               <div
-                className={`absolute right-4 top-4 max-w-[38%] rounded-lg border border-white/20 bg-black/40 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.1em] text-white backdrop-blur transition-all duration-700 ${
+                className={`absolute right-2 top-2 sm:right-4 sm:top-4 max-w-[38%] rounded-lg border border-white/20 bg-black/40 px-2 py-0.5 sm:px-3 sm:py-2 text-[7px] sm:text-[9px] font-bold uppercase tracking-[0.1em] text-white backdrop-blur transition-all duration-700 ${
                   activeStep >= 4 ? "opacity-100" : "opacity-45"
                 }`}
               >

@@ -32,7 +32,26 @@ export default function ProjectCard({ project }) {
           <p className="text-white text-xs font-medium leading-relaxed italic mb-6 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
             {project.details}
           </p>
-          {!project.isPrivate && (
+          {project.variant === "shelfpulse" ? (
+            <a
+              href="#shelfpulse-review"
+              className="inline-flex items-center gap-2 rounded-full bg-yellow-400 px-5 py-2.5 text-xs font-black uppercase tracking-wider text-zinc-950 shadow-lg hover:bg-yellow-300 hover:scale-105 transition-all duration-300"
+            >
+              <span>Explore Review</span>
+              <svg
+                width={14}
+                height={14}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+              </svg>
+            </a>
+          ) : !project.isPrivate && (
             <a
               href={project.link}
               target="_blank"

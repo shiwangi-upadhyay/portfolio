@@ -1,7 +1,9 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import { Layers } from "lucide-react";
 import ComboBuilderMockup from "./ComboBuilderMockup";
 import CanvasEditorMockup from "./CanvasEditorMockup";
+// import PipelineMockup from "./PipelineMockup";
 
 export default function ShelfPulseCaseStudy() {
   const [activeStep, setActiveStep] = useState(0);
@@ -11,17 +13,21 @@ export default function ShelfPulseCaseStudy() {
     setActiveStep(0);
     const timer = setInterval(() => {
       setActiveStep((step) => (step + 1) % 5);
-    }, 1700);
+    }, 2200);
 
     return () => clearInterval(timer);
   }, [activePreview]);
 
   return (
-    <div className="mt-24 min-w-0 overflow-hidden border-t border-zinc-200 pt-12">
+    <div
+      id="shelfpulse-review"
+      className="mt-24 min-w-0 overflow-hidden border-t border-zinc-200 pt-12"
+      aria-label="ShelfPulse Project Review"
+    >
       <div className="grid min-w-0 grid-cols-1 gap-10 items-start xl:grid-cols-[minmax(260px,0.42fr)_minmax(0,1fr)]">
         <div className="min-w-0">
           <p className="text-[10px] font-black uppercase tracking-[0.28em] text-yellow-600">
-            Combo Shots Preview
+            ShelfPulse Project Review
           </p>
           <h3 className="mt-4 text-3xl md:text-5xl font-black tracking-tight text-zinc-950 uppercase leading-none">
             How the Combo Builder Works
@@ -32,12 +38,12 @@ export default function ShelfPulseCaseStudy() {
             landscape and portrait campaign outputs.
           </p>
 
-          {/* AI pipeline preview intentionally disabled for portfolio focus.
-              The section now highlights only Combo Shots / Combo Builder work. */}
+          {/* AI pipeline preview intentionally disabled / commented out for portfolio focus */}
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
             {[
               ["builder", "Combo Builder"],
               ["editor", "Canvas Editor"],
+              // ["pipeline", "AI Pipeline"],
             ].map(([id, label]) => (
               <button
                 key={id}
@@ -73,6 +79,10 @@ export default function ShelfPulseCaseStudy() {
           ) : (
             <CanvasEditorMockup activeStep={activeStep} />
           )}
+
+          {/* AI pipeline preview commented out:
+          activePreview === "pipeline" && <PipelineMockup activeStep={activeStep} />
+          */}
         </div>
       </div>
     </div>

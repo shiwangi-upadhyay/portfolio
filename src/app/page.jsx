@@ -286,9 +286,14 @@ export default function Home() {
         <div className="nav-anim font-medium tracking-tighter text-lg uppercase">Shiwangi Upadhyay</div>
         
         <nav className="hidden md:flex gap-10 text-[10px] font-bold uppercase tracking-[0.25em] text-[#666]">
-          {["About", "Projects", "Contact"].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="nav-anim hover:text-black transition-colors">
-              {item}
+          {[
+            { label: "About", href: "#about" },
+            { label: "Projects", href: "#projects" },
+            { label: "ShelfPulse Review", href: "#shelfpulse-review" },
+            { label: "Contact", href: "#contact" },
+          ].map((item) => (
+            <a key={item.label} href={item.href} className="nav-anim hover:text-black transition-colors">
+              {item.label}
             </a>
           ))}
         </nav>
@@ -312,7 +317,13 @@ export default function Home() {
             <div className="hero-sub-anim md:w-1/3 order-2 md:order-1">
               <p className="text-sm text-[#555] leading-relaxed italic">
                 Currently architecting <br /> 
-                <strong className="text-zinc-900">ShelfPulse</strong> at <strong className="text-zinc-900">ShelfEx</strong>. <br />
+                <a
+                  href="#shelfpulse-review"
+                  className="text-zinc-900 font-bold underline decoration-yellow-400 decoration-2 underline-offset-2 hover:text-yellow-600 transition-colors"
+                >
+                  ShelfPulse
+                </a>{" "}
+                at <strong className="text-zinc-900">ShelfEx</strong>. <br />
                 Focusing on AI workflows and <br />
                 cloud asset automation.
               </p>
