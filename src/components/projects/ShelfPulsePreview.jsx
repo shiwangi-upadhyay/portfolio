@@ -1,5 +1,4 @@
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
 import { shelfPulseAssets, shelfPulseFlow } from "./data";
 
 export default function ShelfPulsePreview() {
@@ -17,9 +16,6 @@ export default function ShelfPulsePreview() {
             <h4 className="mt-2 max-w-[12ch] text-3xl font-black uppercase leading-[0.9] text-white">
               Combo Shots
             </h4>
-          </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white">
-            <ArrowUpRight size={18} />
           </div>
         </div>
 

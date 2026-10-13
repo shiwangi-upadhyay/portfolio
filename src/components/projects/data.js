@@ -1,13 +1,14 @@
 export const projects = [
   {
     num: "01",
-    title: "Drilldown Donut Chart",
-    subtitle: "TypeScript • D3.js • Power BI SDK",
-    image: "/images/Donut.png",
-    link: "https://github.com/shiwangi-upadhyay/Powerbi-Donut-Chart",
+    title: "OperinLabs",
+    subtitle: "Next.js • React • Tailwind",
+    image: null,
+    link: "https://operin-labs-seven.vercel.app/",
     isPrivate: false,
+    variant: "operin",
     details:
-      "A custom Power BI visual built from scratch featuring multi-level drilldown navigation, 360° animated transitions, Top-N grouping, and cross-filtering.",
+      "A clean Next.js redesign for a healthcare AI company, featuring scroll-led storytelling, language showcases, and responsive product sections.",
   },
   {
     num: "02",
@@ -22,14 +23,25 @@ export const projects = [
   },
   {
     num: "03",
-    title: "Library App",
-    subtitle: "MERN Stack & JWT",
-    image: "/images/library.png",
-    link: "https://cafe-library.vercel.app/",
+    title: "Drilldown Donut Chart",
+    subtitle: "TypeScript • D3.js • Power BI SDK",
+    image: "/images/Donut.png",
+    link: "https://github.com/shiwangi-upadhyay/Powerbi-Donut-Chart",
     isPrivate: false,
+    variant: "drilldown",
     details:
-      "Full-stack book rental platform featuring secure JWT-based role access and a clean user interface.",
+      "A custom Power BI visual built from scratch featuring multi-level drilldown navigation, 360° animated transitions, Top-N grouping, and cross-filtering.",
   },
+  // {
+  //   num: "04",
+  //   title: "Library App",
+  //   subtitle: "MERN Stack & JWT",
+  //   image: "/images/library.png",
+  //   link: "https://cafe-library.vercel.app/",
+  //   isPrivate: false,
+  //   details:
+  //     "Full-stack book rental platform featuring secure JWT-based role access and a clean user interface.",
+  // },
 ];
 
 export const shelfPulseFlow = [
